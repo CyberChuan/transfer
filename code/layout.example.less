@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  list-style: none;
+}
+
+
+.page {
+  display: grid;
+  height: 100vh;
+  background-color: #eee;
+  grid-gap: 16px;
+  grid-template-rows: 90px 1fr 90px;
+
+  .header, .body, .footer {
+    background-color: #ddd;
+  }
+
+  .body {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-rows: minmax(310px, 1fr) 1.5fr;
+
+    & > div {
+      background-color: #ccc;
+    }
+
+    .firstRow, .secondRow {
+      display: grid;
+      grid-gap: 16px;
+      //grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+      grid-template-columns: 1fr 1fr;
+
+      & > div {
+        background-color: #bbb;
+      }
+    }
+
+    .firstRow {
+      .right {
+        display: grid;
+        grid-template-rows: 40px 1fr;
+        grid-gap: 16px;
+
+        .filter {
+          max-width: 100%;
+          overflow-x: hidden;
+          line-height: 40px;
+          background-color: #aaa;
+        }
+      }
+    }
+
+    .secondRow {
+      .right {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 16px;
+      }
+    }
+  }
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  background-color: #aaa;
+
+  .title {
+    opacity: 0.8;
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+  }
+
+  .content {
+    position: relative;
+    opacity: 0.8;
+    overflow: auto;
+    border-top: 1px solid #999;
+
+    .container{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.scrollContainer {
+  height: 100%;
+  overflow: auto;
+}

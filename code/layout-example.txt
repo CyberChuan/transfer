@@ -1,0 +1,69 @@
+import styles from './app.module.less';
+
+function List() {
+  const items = Array.from({length: 10}).map((item, index) => {
+    return (
+      <li>我是第 {index} 个</li>
+    )
+  });
+
+  return (
+    <div className={styles.scrollContainer}>
+      <ul>{items}</ul>
+    </div>
+  );
+}
+
+function Card(props: any) {
+  return (
+    <section className={styles.card}>
+      <div className={styles.title}>
+        <span>我是标题</span>
+      </div>
+      <div className={styles.content}>
+        <div className={styles.container}>
+          <List></List>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function App() {
+  return (
+    <div className={styles.page}>
+      <div className={styles.header}></div>
+
+      <div className={styles.body}>
+        <div className={styles.firstRow}>
+          <div>
+            <Card>左上角</Card>
+          </div>
+          <div className={styles.right}>
+            <p className={styles.filter}>我是筛选器我是筛选器我是筛选器我是筛选器我是筛选器我是筛选器我是筛选器我是筛选器我是筛选器我是筛选器我是筛选器我是筛选器</p>
+            <div>
+              <Card>右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角右上角</Card>
+            </div>
+          </div>
+        </div>
+        <div className={styles.secondRow}>
+          <div>
+            <Card>左下角</Card>
+          </div>
+          <div className={styles.right}>
+            <div>
+              <Card>右下角1</Card>
+            </div>
+            <div>
+              <Card>右下角2</Card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.footer}></div>
+    </div>
+  );
+}
+
+export default App;
